@@ -8,10 +8,38 @@ async function getCards(){
     const response = await fetch(url);
     if(response.status == 200){
         flashcards = await response.json();
-        loadCard(0);
+        //loadCard(0);
+        loadSheet();
         document.getElementById("messages").innerHTML = ""
     }
 }
+
+function loadSheet(){
+    let output = "";
+    for(let i=1;i<flashcards.length;i++){
+        output += `
+        <div class="card" id="card_${i}">
+            <div class="card-body">
+                <h5 class="card-title" onclick="toggle(${i})">${flashcards[i][0]} <button type="button" class="btn-close" aria-label="Close" onclick="hide(${i})"></button></h5>
+                <p class="card-text" id="answer_${i}" hidden="true">${flashcards[i][1]}</p>          
+            </div>
+        </div>`
+    }
+    document.getElementById("flashcards").innerHTML = output;
+}
+function toggle(index){
+    if(document.getElementById(`answer_${index}`).hidden){
+        document.getElementById(`answer_${index}`).hidden=false;
+    }
+    else{
+        document.getElementById(`answer_${index}`).hidden=true;
+    }
+}
+
+function hide(index){
+        document.getElementById(`card_${index}`).hidden=true;
+}
+
 function loadCard(item){
     document.getElementById("question").innerHTML = flashcards[item][0];
     if(show){
