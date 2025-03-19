@@ -5,7 +5,7 @@ let show = false;
 async function getSheets() {
     document.getElementById("messages").innerHTML = "loading"
     href = encodeURIComponent(window.location.href);
-    url = `https://script.google.com/macros/s/AKfycbwTpGdGNTPc8DTRIgKybIrm2G-Uv1y7nmhOc9q6NdE/dev`
+    url = `https://script.google.com/macros/s/AKfycbzM1FhV-YdRBjBGHGk2ihseQ82F5HP5jGYPdb2RGuvzeCOQ0T1xgzokRXiZCAqqTI2L/exec`
     const response = await fetch(url);
     if(response.status == 200){
         sets = await response.json();
@@ -17,9 +17,7 @@ async function getSheets() {
             </div>
         </div>`
         }
-        document.getElementById("messages").innerHTML = `
-        
-        
+        document.getElementById("messages").innerHTML = `${output}
         `
     }
     
@@ -28,7 +26,7 @@ async function getSheets() {
 async function getCards(set){
     document.getElementById("messages").innerHTML = "loading"
     href = encodeURIComponent(window.location.href);
-    url = `https://script.google.com/macros/s/AKfycbwTpGdGNTPc8DTRIgKybIrm2G-Uv1y7nmhOc9q6NdE/dev?flashcards=${set}`
+    url = `https://script.google.com/macros/s/AKfycbzM1FhV-YdRBjBGHGk2ihseQ82F5HP5jGYPdb2RGuvzeCOQ0T1xgzokRXiZCAqqTI2L/exec?flashcards=${set}`
     const response = await fetch(url);
     if(response.status == 200){
         flashcards = await response.json();
