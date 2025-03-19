@@ -1,10 +1,34 @@
 let flashcards = [];
 let cardIndex = 0;
 let show = false;
-async function getCards(){
+
+async function getSheets() {
     document.getElementById("messages").innerHTML = "loading"
     href = encodeURIComponent(window.location.href);
-    url = `https://script.google.com/macros/s/AKfycbyFVJ-XIUrI0gdO43f7gK7NavmkUmR-mJwBpmDzQBlnh9QUlXX54AoXjTiU-Eq0EW86/exec`
+    url = `https://script.google.com/macros/s/AKfycbwTpGdGNTPc8DTRIgKybIrm2G-Uv1y7nmhOc9q6NdE/dev`
+    const response = await fetch(url);
+    if(response.status == 200){
+        sets = await response.json();
+        let output = "<h1>pick a pack</h1>"
+        for(let i=0;i<sets.length;i++){
+            output += `<div class="card" id="card_${i}">
+            <div class="card-body">
+                <h2 class="card-title" onclick="getCards(${sets[i]})">${sets[i]}</h2>
+            </div>
+        </div>`
+        }
+        document.getElementById("messages").innerHTML = `
+        
+        
+        `
+    }
+    
+}
+
+async function getCards(set){
+    document.getElementById("messages").innerHTML = "loading"
+    href = encodeURIComponent(window.location.href);
+    url = `https://script.google.com/macros/s/AKfycbwTpGdGNTPc8DTRIgKybIrm2G-Uv1y7nmhOc9q6NdE/dev?flashcards=${set}`
     const response = await fetch(url);
     if(response.status == 200){
         flashcards = await response.json();
