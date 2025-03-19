@@ -4,7 +4,7 @@ let show = false;
 async function getCards(){
     document.getElementById("messages").innerHTML = "loading"
     href = encodeURIComponent(window.location.href);
-    url = `https://script.google.com/macros/s/AKfycbxZjybYBTSYYfO5yM3N2F68A7wQYEIiJr96PHWEjpKh0Ddz7jVLcEGvr0fwYJGT7pmO/exec`
+    url = `https://script.google.com/macros/s/AKfycbyFVJ-XIUrI0gdO43f7gK7NavmkUmR-mJwBpmDzQBlnh9QUlXX54AoXjTiU-Eq0EW86/exec`
     const response = await fetch(url);
     if(response.status == 200){
         flashcards = await response.json();
