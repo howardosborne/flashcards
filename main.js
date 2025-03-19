@@ -18,11 +18,13 @@ function loadSheet(){
     let output = "";
     for(let i=1;i<flashcards.length;i++){
         output += `
+        <div class="col-sm-6 mb-3 mb-sm-0">
         <div class="card" id="card_${i}">
             <div class="card-body">
                 <h5 class="card-title" onclick="toggle(${i})">${flashcards[i][0]} <span class="badge rounded-pill text-bg-light" onclick="hide(${i})">done</span></h5>
                 <p class="card-text" id="answer_${i}" hidden="true">${flashcards[i][1]}</p>          
             </div>
+        </div>
         </div>`
     }
     document.getElementById("flashcards").innerHTML = output;
