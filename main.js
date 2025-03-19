@@ -13,7 +13,7 @@ async function getSheets() {
         for(let i=0;i<sets.length;i++){
             output += `<div class="card" id="card_${i}">
             <div class="card-body">
-                <h2 class="card-title" onclick="getCards(${sets[i]})">${sets[i]}</h2>
+                <h2 class="card-title" onclick="getCards('${sets[i]}')">${sets[i]}</h2>
             </div>
         </div>`
         }
