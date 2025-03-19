@@ -39,7 +39,7 @@ function loadSheet(){
         <div class="col mb-3 mb-sm-0">
         <div class="card" id="card_${i}">
             <div class="card-body">
-                <h1 class="card-title" onclick="toggle(${i})">${flashcards[i][0]} <span class="badge rounded-pill text-bg-light"</h1>
+                <h1 class="card-title" onclick="toggle(${i})">${flashcards[i][0]}</h1>
                 <h2 class="card-text" id="answer_${i}" hidden="true">${flashcards[i][1]}</h2>          
             </div>
         </div>
