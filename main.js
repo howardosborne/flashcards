@@ -34,7 +34,7 @@ async function getCards(set){
 
 function loadSheet(){
     let output = '<div class="row">';
-    for(let i=1;i<flashcards.length;i++){
+    for(let i=0;i<flashcards.length;i++){
         output += `
         <div class="col mb-3 mb-sm-0">
         <div class="card" id="card_${i}">
