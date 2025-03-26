@@ -1,6 +1,5 @@
 let flashcards = [];
 let cardIndex = 0;
-let reversed = false;
 let show = false;
 
 function reverse(){
