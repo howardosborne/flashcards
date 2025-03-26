@@ -1,6 +1,12 @@
 let flashcards = [];
 let cardIndex = 0;
+let reversed = false;
 let show = false;
+
+function reverse(){
+    if(reversed){reversed = false}
+    else{reversed = true}
+}
 
 async function getSheets() {
     document.getElementById("messages").innerHTML = "loading"
@@ -32,15 +38,20 @@ async function getCards(set){
     }
 }
 
-function loadSheet(){
+function reverse(){
+    if(document.getElementById("reversed").checked){loadSheet(from=1,to=0)}
+    else{loadSheet(from=0,to=1)}
+}
+
+function loadSheet(from=0,to=1){
     let output = '<div class="row">';
     for(let i=0;i<flashcards.length;i++){
         output += `
         <div class="col mb-3 mb-sm-0">
         <div class="card" id="card_${i}">
             <div class="card-body">
-                <h1 class="card-title" onclick="toggle(${i})">${flashcards[i][0]}</h1>
-                <h2 class="card-text" id="answer_${i}" hidden="true">${flashcards[i][1]}</h2>          
+                <h1 class="card-title" onclick="toggle(${i})">${flashcards[i][from]}</h1>
+                <h2 class="card-text" id="answer_${i}" hidden="true">${flashcards[i][to]}</h2>          
             </div>
         </div>
         </div>`
