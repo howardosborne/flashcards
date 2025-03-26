@@ -14,7 +14,6 @@ async function getSheets() {
     const response = await fetch(url);
     if(response.status == 200){
         sets = await response.json();
-        let output = "<h1>pick a pack</h1>"
         for(let i=0;i<sets.length;i++){
             output += `<button class="btn btn-outline-secondary" onclick="getCards('${sets[i]}')">${sets[i]}</button>`;
         }
