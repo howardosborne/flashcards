@@ -20,6 +20,7 @@ async function getSheets() {
         }
         document.getElementById("sets").innerHTML = `${output}
         `
+        document.getElementById("messages").innerHTML = ""
     }
     
 }
