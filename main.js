@@ -19,7 +19,7 @@ async function getSheets() {
         for(let i=0;i<sets.length;i++){
             output += `<button class="btn btn-outline-secondary" onclick="getCards('${sets[i]}')">${sets[i]}</button>`;
         }
-        document.getElementById("messages").innerHTML = `${output}
+        document.getElementById("sets").innerHTML = `${output}
         `
     }
     
@@ -32,8 +32,8 @@ async function getCards(set){
     const response = await fetch(url);
     if(response.status == 200){
         flashcards = await response.json();
-        //loadCard(0);
-        loadSheet();
+        if(document.getElementById("reversed").checked){loadSheet(from=1,to=0)}
+        else{loadSheet(from=0,to=1)}
         document.getElementById("messages").innerHTML = ""
     }
 }
